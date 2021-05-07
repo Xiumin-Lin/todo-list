@@ -9,7 +9,6 @@ import { ADD_ITEMS } from "./actionTypes.js";
 
 const initialState = {
   items: [],
-  date: [],
 };
 
 let store = createStore(function (state, action) {
@@ -20,8 +19,7 @@ let store = createStore(function (state, action) {
     case ADD_ITEMS:
       return {
         ...state,
-        items: [...(state?.items || []), action.value],
-        date: [action.date],
+        items: [...(state?.items || []), action.value + " | " + action.date],
       };
     default:
       return <p>Nothing</p>;

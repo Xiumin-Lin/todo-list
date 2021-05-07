@@ -12,8 +12,8 @@ function Todo({ dispatch }) {
         type="text"
         value={value}
         onChange={(e) => {
-          setValue(e.target.value);
           setDate(new Date().getSeconds().toString());
+          setValue(e.target.value);
         }}
       />
       <button

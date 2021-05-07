@@ -1,20 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 
-function List({ items, date }) {
+function List({ items }) {
   console.log("----" + items);
-  console.log(date);
   if (items != null) {
     console.log("[List.js]");
 
     return (
       <ul>
         {items.map((item) => {
-          return (
-            <li key={item}>
-              {item} - {date}
-            </li>
-          );
+          return <li key={item}>{item}</li>;
         })}
       </ul>
     );
@@ -23,7 +18,7 @@ function List({ items, date }) {
 
 const mapStateToProps = function (state) {
   console.log("[In mapStateToProps]");
-  return { items: state.items, date: state.date };
+  return { items: state.items };
 };
 
 export default connect(mapStateToProps)(List);
