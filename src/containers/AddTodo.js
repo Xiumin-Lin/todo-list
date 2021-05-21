@@ -6,21 +6,31 @@ const AddTodo = ({ dispatch }) => {
   let input;
 
   return (
-    <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (!input.value.trim()) {
-            return;
-          }
-          dispatch(addTodo(input.value, new Date().toLocaleString()));
-          input.value = "";
-        }}
+    <form
+      class={"flex w-full"}
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (!input.value.trim()) {
+          return;
+        }
+        dispatch(addTodo(input.value, new Date().toLocaleString()));
+        input.value = "";
+      }}
+    >
+      <input
+        class={"shadow appearance-none border rounded-xl w-full py-2 px-3 mr-4"}
+        placeholder={"Add Todo"}
+        ref={(node) => (input = node)}
+      />
+      <button
+        class={
+          "px-3 py-1 flex-no-shrink p-2 border-2 rounded-xl text-green-600 font-bold border-green-600 hover:text-white hover:bg-green-600"
+        }
+        type="submit"
       >
-        <input ref={(node) => (input = node)} />
-        <button type="submit"> Add Todo </button>
-      </form>
-    </div>
+        Add
+      </button>
+    </form>
   );
 };
 

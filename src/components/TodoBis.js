@@ -2,13 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const TodoBis = ({ onClick, completed, text }) => (
-  <li
-    onClick={onClick}
-    style={{
-      textDecoration: completed ? "line-through" : "none",
-      width: "90%",
-    }}
-  >
+  <li onClick={onClick} class={`${completed ? "line-through" : ""} w-full text-grey-darkest`}>
     {text}
   </li>
 );

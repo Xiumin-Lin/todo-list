@@ -6,12 +6,7 @@ import RemoveTodo from "../containers/RemoveTodo";
 const TodoList = ({ todos, toggleTodo }) => (
   <ul>
     {todos.map((todo) => (
-      <div
-        style={{
-          display: "flex",
-          width: "30%",
-        }}
-      >
+      <div class={"flex mb-4 items-center"}>
         <TodoBis key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
         <RemoveTodo id={todo.id} />
       </div>

@@ -6,6 +6,9 @@ const RemoveTodo = ({ id, dispatch }) => {
   return (
     <div>
       <button
+        class={
+          "flex-no-shrink px-3 py-1 ml-2 border-2 rounded-xl font-bold text-red-600 border-red-600 hover:text-white hover:bg-red-600"
+        }
         onClick={(e) => {
           e.preventDefault();
           dispatch(deleteTodo(id));
