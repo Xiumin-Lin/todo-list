@@ -8,7 +8,8 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .A,
+  pp-logo {
     animation: App-logo-float infinite 3s ease-in-out;
   }
 }

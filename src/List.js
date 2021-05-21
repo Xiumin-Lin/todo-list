@@ -2,14 +2,25 @@ import React from "react";
 import { connect } from "react-redux";
 
 function List({ items }) {
-  console.log("----" + items);
   if (items != null) {
-    console.log("[List.js]");
-
     return (
       <ul>
-        {items.map((item) => {
-          return <li key={item}>{item}</li>;
+        {items.map((item, idx) => {
+          //TODO better use custom key than the index
+          return (
+            <li key={idx}>
+              <input type="checkbox" name={item} />
+              <label>{item}</label>
+              <button
+                type="button"
+                onClick={() => {
+                  items.splice(idx, 1);
+                }}
+              >
+                X
+              </button>
+            </li>
+          );
         })}
       </ul>
     );
@@ -17,7 +28,7 @@ function List({ items }) {
 }
 
 const mapStateToProps = function (state) {
-  console.log("[In mapStateToProps]");
+  console.log("[In mapStateToProps]"); // DEBUG
   return { items: state.items };
 };
 

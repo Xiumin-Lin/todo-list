@@ -8,16 +8,9 @@ function Todo({ dispatch }) {
 
   return (
     <React.Fragment>
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => {
-          setDate(new Date().getSeconds().toString());
-          setValue(e.target.value);
-        }}
-      />
-      <button
-        onClick={function () {
+      <form
+        onSubmit={function (e) {
+          e.preventDefault();
           dispatch({
             type: ADD_ITEMS,
             value,
@@ -26,8 +19,18 @@ function Todo({ dispatch }) {
           setValue("");
         }}
       >
-        add
-      </button>
+        <input
+          required
+          type="text"
+          value={value}
+          onChange={(e) => {
+            setDate(new Date().getSeconds().toString());
+            //TODO : new Date().toLocaleDateString()
+            setValue(e.target.value);
+          }}
+        />
+        <button type="submit">Add</button>
+      </form>
     </React.Fragment>
   );
 }

@@ -5,26 +5,10 @@ import App from "./App.js";
 
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import { ADD_ITEMS } from "./actionTypes.js";
 
-const initialState = {
-  items: [],
-};
+import rootReducer from "./reducers";
 
-let store = createStore(function (state, action) {
-  console.log("[In create store]");
-  console.log(state);
-  console.log(action);
-  switch (action.type) {
-    case ADD_ITEMS:
-      return {
-        ...state,
-        items: [...(state?.items || []), action.value + " | " + action.date],
-      };
-    default:
-      return <p>Nothing</p>;
-  }
-}, initialState);
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
