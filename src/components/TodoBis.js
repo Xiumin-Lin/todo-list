@@ -8,9 +8,9 @@ const TodoBis = ({ onClick, completed, text }) => {
   return (
     <li
       onClick={onClick}
-      className={`${completed ? "line-through" : ""} w-full ${
-        theme === "dark" ? "text-white" : "text-black"
-      }`}
+      className={`flex-1 break-words overflow-hidden ${
+        completed ? "line-through" : ""
+      } w-full ${theme === "dark" ? "text-white" : "text-black"}`}
     >
       {text}
     </li>
