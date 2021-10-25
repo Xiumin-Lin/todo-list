@@ -15,7 +15,7 @@ const AddTodo = ({ dispatch }) => {
         if (!input.value.trim()) {
           return;
         }
-        dispatch(addTodo(input.value, new Date().toLocaleDateString()));
+        dispatch(addTodo(input.value));
         dispatch(setVisibilityFilter(VisibilityFilters.SHOW_ALL));
         input.value = "";
       }}
