@@ -3,8 +3,12 @@ import PropTypes from "prop-types";
 
 const Link = ({ active, children, onClick }) => (
   <button
+    style={{
+      backgroundColor: "#ff4e00",
+      backgroundImage: "linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%)",
+    }}
     className={
-      "flex-no-shrink px-3 py-1 ml-2 border-2 rounded-lg font-bold hover:text-blue-600 border-blue-600 text-white bg-blue-600 hover:bg-white"
+      "flex-no-shrink px-3 py-2 ml-2 focus:outline-none rounded-lg font-bold text-white"
     }
     onClick={onClick}
     disabled={active}
