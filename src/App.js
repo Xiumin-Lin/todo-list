@@ -50,9 +50,9 @@ function App() {
             </div>
 
             <div className="mb-4 p-6 space-y-8">
-              <div className="flex mt-4 justify-center">
+              
                 <AddTodo />
-              </div>
+          
               <VisibleTodoList />
               <Filter />
             </div>

@@ -9,7 +9,7 @@ const AddTodo = ({ dispatch }) => {
 
   return (
     <form
-      className={"flex w-full"}
+      className={"flex mt-4 justify-center w-full"}
       onSubmit={(e) => {
         e.preventDefault();
         if (!input.value.trim()) {
