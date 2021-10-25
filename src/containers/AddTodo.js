@@ -7,7 +7,7 @@ const AddTodo = ({ dispatch }) => {
 
   return (
     <form
-      class={"flex w-full"}
+      className={"flex w-full"}
       onSubmit={(e) => {
         e.preventDefault();
         if (!input.value.trim()) {
@@ -18,13 +18,15 @@ const AddTodo = ({ dispatch }) => {
       }}
     >
       <input
-        class={"shadow appearance-none border rounded-xl w-full py-2 px-3 mr-4"}
+        className={
+          "shadow appearance-none border rounded-xl focus:outline-none w-full py-2 px-3 mr-4"
+        }
         placeholder={"Add Todo"}
         ref={(node) => (input = node)}
       />
       <button
-        class={
-          "px-3 py-1 flex-no-shrink p-2 border-2 rounded-xl text-green-600 font-bold border-green-600 hover:text-white hover:bg-green-600"
+        className={
+          "px-3 py-1 flex-no-shrink p-2 border-2 rounded-xl focus:outline-none text-white hover:text-green-600 font-bold border-green-600 bg-green-600 hover:bg-white"
         }
         type="submit"
       >
