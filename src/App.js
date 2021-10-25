@@ -14,17 +14,6 @@ function App() {
 
   return (
     <React.Fragment>
-      <div className="absolute mt-4 mr-4 right-0 ">
-        <DarkModeToggle
-          onChange={() => {
-            setIsDarkMode(!isDarkMode);
-            toggleTheme();
-          }}
-          checked={isDarkMode}
-          className=" focus:outline-none"
-        />
-      </div>
-
       <ThemeContext.Provider value={{ theme }}>
         <div
           className={`h-screen w-full flex flex-col space-y-4 items-center justify-center ${
@@ -50,13 +39,21 @@ function App() {
             </div>
 
             <div className="mb-4 p-6 space-y-8">
-              
-                <AddTodo />
-          
+              <AddTodo />
+
               <VisibleTodoList />
               <Filter />
             </div>
           </div>
+
+          <DarkModeToggle
+            onChange={() => {
+              setIsDarkMode(!isDarkMode);
+              toggleTheme();
+            }}
+            checked={isDarkMode}
+            className=" focus:outline-none"
+          />
         </div>
       </ThemeContext.Provider>
     </React.Fragment>
