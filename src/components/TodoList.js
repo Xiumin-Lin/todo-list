@@ -27,20 +27,6 @@ const TodoList = ({ todos, toggleTodo }) => {
           ))}
         </>
       )}
-      {todos.map((todo) => (
-        <div
-          className={`flex rounded px-3 py-2 mb-4 space-x-4 items-center ${
-            theme === "dark" ? "bg-gray-800" : "bg-gray-300"
-          }`}
-        >
-          <TodoBis
-            key={todo.id}
-            {...todo}
-            onClick={() => toggleTodo(todo.id)}
-          />
-          <RemoveTodo id={todo.id} />
-        </div>
-      ))}
     </ul>
   );
 };
