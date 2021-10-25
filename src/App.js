@@ -24,15 +24,16 @@ function App() {
           className=" focus:outline-none"
         />
       </div>
+
       <ThemeContext.Provider value={{ theme }}>
         <div
           className={`h-screen w-full flex flex-col space-y-4 items-center justify-center ${
-            theme === "dark" ? "bg-gray-900" : "bg-gray-200"
+            theme === "dark" ? "bg-gray-900" : "bg-gray-300"
           }`}
         >
           <div
             className={`shadow-2xl ${
-              theme === "dark" ? "bg-gray-900" : "bg-gray-100"
+              theme === "dark" ? "bg-gray-900" : "bg-gray-200"
             } rounded-xl lg:w-3/4 lg:max-w-lg`}
           >
             <div
