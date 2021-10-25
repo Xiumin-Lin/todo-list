@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { connect } from "react-redux";
 import { addTodo, setVisibilityFilter, VisibilityFilters } from "../actions";
+import ThemeContext from "../contexts/ThemeContext.js";
 
 const AddTodo = ({ dispatch }) => {
   let input;
+  const { theme } = useContext(ThemeContext);
 
   return (
     <form
@@ -19,9 +21,9 @@ const AddTodo = ({ dispatch }) => {
       }}
     >
       <input
-        className={
-          "bg-gray-800 text-white appearance-none rounded-xl focus:outline-none w-full py-2 px-3 mr-4"
-        }
+        className={`${
+          theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-300 text-black"
+        } appearance-none rounded-xl focus:outline-none w-full py-2 px-3 mr-4`}
         placeholder={"Enter new task"}
         ref={(node) => (input = node)}
       />
