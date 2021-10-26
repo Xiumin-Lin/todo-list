@@ -11,8 +11,6 @@ const RemoveTodo = ({ id, dispatch }) => {
       onClick={(e) => {
         e.preventDefault();
         dispatch(deleteTodo(id));
-
-        console.log(dispatch(deleteTodo(id)));
       }}
     >
       <svg
