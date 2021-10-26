@@ -3,17 +3,18 @@ import PropTypes from "prop-types";
 import TodoBis from "./TodoBis";
 import RemoveTodo from "../containers/RemoveTodo";
 import ThemeContext from "../contexts/ThemeContext";
+import ClearTodos from "../containers/ClearTodos";
 
 const TodoList = ({ todos, toggleTodo }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <ul>
-      {todos && (
+    <div>
+      <ul style={{ maxHeight: "300px" }} className="overflow-y-scroll mb-4">
         <>
           {todos.map((todo) => (
             <div
-              className={`flex rounded px-3 py-2 mb-4 space-x-4 items-center ${
+              className={`flex rounded px-3 py-2 mb-2 space-x-4 items-center ${
                 theme === "dark" ? "bg-gray-800" : "bg-gray-300"
               }`}
             >
@@ -26,8 +27,9 @@ const TodoList = ({ todos, toggleTodo }) => {
             </div>
           ))}
         </>
-      )}
-    </ul>
+      </ul>
+      {todos.length > 0 && <ClearTodos />}
+    </div>
   );
 };
 

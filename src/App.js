@@ -40,7 +40,6 @@ function App() {
 
             <div className="mb-4 p-6 space-y-8">
               <AddTodo />
-
               <VisibleTodoList />
               <Filter />
             </div>
