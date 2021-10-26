@@ -31,8 +31,15 @@ const TodoList = ({ todos, toggleTodo }) => {
         )}
       </ul>
       {todos.length > 0 && (
-        <div className="flex justify-center">
+        <div className="flex items-center justify-between">
           <ClearTodos />
+          <div
+            className={`font-medium ${
+              theme === "dark" ? "text-white" : "text-black"
+            }`}
+          >
+            {todos.length} tasks
+          </div>
         </div>
       )}
     </div>
