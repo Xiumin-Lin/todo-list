@@ -11,24 +11,30 @@ const TodoList = ({ todos, toggleTodo }) => {
   return (
     <div>
       <ul style={{ maxHeight: "300px" }} className="overflow-y-scroll mb-4">
-        <>
-          {todos.map((todo) => (
-            <div
-              className={`flex rounded px-3 py-2 mb-2 space-x-4 items-center ${
-                theme === "dark" ? "bg-gray-800" : "bg-gray-300"
-              }`}
-            >
-              <TodoBis
-                key={todo.id}
-                {...todo}
-                onClick={() => toggleTodo(todo.id)}
-              />
-              <RemoveTodo id={todo.id} />
-            </div>
-          ))}
-        </>
+        {todos && (
+          <>
+            {todos.map((todo) => (
+              <div
+                className={`flex rounded px-3 py-2 mb-2 space-x-4 items-center ${
+                  theme === "dark" ? "bg-gray-800" : "bg-gray-300"
+                }`}
+              >
+                <TodoBis
+                  key={todo.id}
+                  {...todo}
+                  onClick={() => toggleTodo(todo.id)}
+                />
+                <RemoveTodo id={todo.id} />
+              </div>
+            ))}
+          </>
+        )}
       </ul>
-      {todos.length > 0 && <ClearTodos />}
+      {todos.length > 0 && (
+        <div className="flex justify-center">
+          <ClearTodos />
+        </div>
+      )}
     </div>
   );
 };
