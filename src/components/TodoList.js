@@ -6,7 +6,7 @@ import ThemeContext from "../contexts/ThemeContext";
 import ClearTodos from "../containers/ClearTodos";
 
 const TodoList = ({ todos, toggleTodo }) => {
-  const { theme } = useContext(ThemeContext);
+  const { isDarkMode } = useContext(ThemeContext);
 
   return (
     <div>
@@ -16,7 +16,7 @@ const TodoList = ({ todos, toggleTodo }) => {
             {todos.map((todo) => (
               <div
                 className={`flex rounded px-3 py-2 mb-2 space-x-4 items-center ${
-                  theme === "dark" ? "bg-gray-800" : "bg-gray-300"
+                  isDarkMode ? "bg-gray-800" : "bg-gray-300"
                 }`}
               >
                 <TodoBis
@@ -35,7 +35,7 @@ const TodoList = ({ todos, toggleTodo }) => {
           <ClearTodos />
           <div
             className={`font-medium ${
-              theme === "dark" ? "text-white" : "text-black"
+              isDarkMode ? "text-white" : "text-black"
             }`}
           >
             {todos.length} tasks

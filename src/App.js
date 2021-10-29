@@ -7,22 +7,21 @@ import DarkModeToggle from "react-dark-mode-toggle";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => false);
-  const [theme, setTheme] = useState("light");
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setIsDarkMode(!isDarkMode);
   };
 
   return (
     <React.Fragment>
-      <ThemeContext.Provider value={{ theme }}>
+      <ThemeContext.Provider value={{ isDarkMode }}>
         <div
           className={`h-screen w-full flex flex-col space-y-4 items-center justify-center ${
-            theme === "dark" ? "bg-gray-900" : "bg-gray-300"
+            isDarkMode ? "bg-gray-900" : "bg-gray-300"
           }`}
         >
           <div
             className={`shadow-2xl ${
-              theme === "dark" ? "bg-gray-900" : "bg-gray-200"
+              isDarkMode ? "bg-gray-900" : "bg-gray-200"
             } rounded-xl lg:w-3/4 lg:max-w-lg`}
           >
             <div

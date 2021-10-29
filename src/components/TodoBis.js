@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import ThemeContext from "../contexts/ThemeContext.js";
 
 const TodoBis = ({ onClick, completed, text }) => {
-  const { theme } = useContext(ThemeContext);
+  const { isDarkMode } = useContext(ThemeContext);
 
   return (
     <li
       onClick={onClick}
       className={`flex-1 font-medium break-words overflow-hidden ${
         completed ? "line-through" : ""
-      } w-full ${theme === "dark" ? "text-white" : "text-black"}`}
+      } w-full ${isDarkMode ? "text-white" : "text-black"}`}
     >
       {text}
     </li>
