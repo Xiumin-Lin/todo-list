@@ -1,7 +1,11 @@
+import { bake_cookie, read_cookie } from "sfcookies";
+
 const todos = (state = [], action) => {
+  let reminders = null;
+  state = read_cookie("reminders");
   switch (action.type) {
     case "ADD_TODO":
-      return [
+      reminders = [
         ...state,
         {
           id: action.id,
@@ -9,14 +13,22 @@ const todos = (state = [], action) => {
           completed: false,
         },
       ];
+      bake_cookie("reminders", reminders);
+      return reminders;
     case "TOGGLE_TODO":
-      return state.map((todo) =>
+      reminders = state.map((todo) =>
         todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
       );
+      bake_cookie("reminders", reminders);
+      return reminders;
     case "DELETE_TODO":
-      return state.filter((todo) => todo.id !== action.id);
+      reminders = state.filter((todo) => todo.id !== action.id);
+      bake_cookie("reminders", reminders);
+      return reminders;
     case "CLEAR_TODOS":
-      return [];
+      reminders = [];
+      bake_cookie("reminders", reminders);
+      return reminders;
     default:
       return state;
   }
