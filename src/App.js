@@ -22,9 +22,10 @@ function App() {
           }`}
         >
           <div
+            style={{ minWidth: "350px", maxWidth: "600px" }}
             className={`shadow-2xl ${
               isDarkMode ? "bg-gray-900" : "bg-gray-200"
-            } rounded-xl lg:w-3/4 lg:max-w-lg`}
+            } rounded-xl w-2/5`}
           >
             <div
               style={{
