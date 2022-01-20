@@ -4,11 +4,13 @@ import AddTodo from "./containers/AddTodo.js";
 import VisibleTodoList from "./containers/VisibleTodoList.js";
 import ThemeContext from "./contexts/ThemeContext.js";
 import DarkModeToggle from "react-dark-mode-toggle";
+import { bake_cookie, read_cookie } from "sfcookies";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(() => false);
+  const [isDarkMode, setIsDarkMode] = useState(read_cookie("isDarkMode"));
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
+    bake_cookie("isDarkMode", !isDarkMode);
   };
 
   return (
